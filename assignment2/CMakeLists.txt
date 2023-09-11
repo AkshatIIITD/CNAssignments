@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.27)
+cmake_minimum_required(VERSION 3.22)
 project(Assignment2)
 
 # We will use C++ 17 for this Assignment 2
