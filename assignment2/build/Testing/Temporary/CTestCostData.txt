@@ -2,11 +2,11 @@ wrapping_integers_cmp 1 0.0086193
 wrapping_integers_unwrap 0 0
 wrapping_integers_wrap 1 0.00372609
 wrapping_integers_roundtrip 0 0
-byte_stream_construction 8 0.000397029
-byte_stream_one_write 1 0.00236748
-byte_stream_two_writes 1 0.00582014
-byte_stream_capacity 3 0.249072
-byte_stream_many_writes 10 0.000213206
+byte_stream_construction 12 0.000173321
+byte_stream_one_write 5 0.000330611
+byte_stream_two_writes 5 0.000329087
+byte_stream_capacity 7 0.0950301
+byte_stream_many_writes 14 0.000313415
 recv_connect 0 0
 recv_transmit 0 0
 recv_window 0 0

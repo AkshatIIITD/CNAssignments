@@ -1,17 +1,17 @@
-Start testing: Sep 11 16:15 IST
+Start testing: Sep 12 14:13 IST
 ----------------------------------------------------------
 5/15 Testing: byte_stream_construction
 5/15 Test: byte_stream_construction
 Command: "/home/akshat/Downloads/CNAssignments/assignment2/build/tests/byte_stream_construction"
 Directory: /home/akshat/Downloads/CNAssignments/assignment2/build/tests
-"byte_stream_construction" start time: Sep 11 16:15 IST
+"byte_stream_construction" start time: Sep 12 14:13 IST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"byte_stream_construction" end time: Sep 11 16:15 IST
+"byte_stream_construction" end time: Sep 12 14:13 IST
 "byte_stream_construction" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -19,14 +19,14 @@ Test Passed.
 6/15 Test: byte_stream_one_write
 Command: "/home/akshat/Downloads/CNAssignments/assignment2/build/tests/byte_stream_one_write"
 Directory: /home/akshat/Downloads/CNAssignments/assignment2/build/tests
-"byte_stream_one_write" start time: Sep 11 16:15 IST
+"byte_stream_one_write" start time: Sep 12 14:13 IST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"byte_stream_one_write" end time: Sep 11 16:15 IST
+"byte_stream_one_write" end time: Sep 12 14:13 IST
 "byte_stream_one_write" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -34,14 +34,14 @@ Test Passed.
 7/15 Test: byte_stream_two_writes
 Command: "/home/akshat/Downloads/CNAssignments/assignment2/build/tests/byte_stream_two_writes"
 Directory: /home/akshat/Downloads/CNAssignments/assignment2/build/tests
-"byte_stream_two_writes" start time: Sep 11 16:15 IST
+"byte_stream_two_writes" start time: Sep 12 14:13 IST
 Output:
 ----------------------------------------------------------
 <end of output>
-Test time =   0.01 sec
+Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"byte_stream_two_writes" end time: Sep 11 16:15 IST
+"byte_stream_two_writes" end time: Sep 12 14:13 IST
 "byte_stream_two_writes" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -49,14 +49,14 @@ Test Passed.
 8/15 Test: byte_stream_capacity
 Command: "/home/akshat/Downloads/CNAssignments/assignment2/build/tests/byte_stream_capacity"
 Directory: /home/akshat/Downloads/CNAssignments/assignment2/build/tests
-"byte_stream_capacity" start time: Sep 11 16:15 IST
+"byte_stream_capacity" start time: Sep 12 14:13 IST
 Output:
 ----------------------------------------------------------
 <end of output>
-Test time =   0.75 sec
+Test time =   0.67 sec
 ----------------------------------------------------------
 Test Passed.
-"byte_stream_capacity" end time: Sep 11 16:15 IST
+"byte_stream_capacity" end time: Sep 12 14:13 IST
 "byte_stream_capacity" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -64,15 +64,15 @@ Test Passed.
 9/15 Test: byte_stream_many_writes
 Command: "/home/akshat/Downloads/CNAssignments/assignment2/build/tests/byte_stream_many_writes"
 Directory: /home/akshat/Downloads/CNAssignments/assignment2/build/tests
-"byte_stream_many_writes" start time: Sep 11 16:15 IST
+"byte_stream_many_writes" start time: Sep 12 14:13 IST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"byte_stream_many_writes" end time: Sep 11 16:15 IST
+"byte_stream_many_writes" end time: Sep 12 14:13 IST
 "byte_stream_many_writes" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Sep 11 16:15 IST
+End testing: Sep 12 14:13 IST

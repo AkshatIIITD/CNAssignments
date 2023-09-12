@@ -38,7 +38,7 @@ void ByteStream::pop_output(const size_t len) {
     return;  // Nothing to pop
   }
   if (len > _buffer.size()) {
-    _error = true;
+    set_error();  // Can't pop more bytes than are in the buffer
     return;  // Can't pop more bytes than are in the buffer
   }
   // Remove the specified number of bytes from the front of the buffer
