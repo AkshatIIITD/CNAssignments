@@ -253,20 +253,6 @@ byte_stream_capacity/fast:
 .PHONY : byte_stream_capacity/fast
 
 # Convenience name for target.
-tests/CMakeFiles/byte_stream_many_writes.dir/rule:
-	cd /home/akshat/Downloads/CNAssignments/assignment2/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/byte_stream_many_writes.dir/rule
-.PHONY : tests/CMakeFiles/byte_stream_many_writes.dir/rule
-
-# Convenience name for target.
-byte_stream_many_writes: tests/CMakeFiles/byte_stream_many_writes.dir/rule
-.PHONY : byte_stream_many_writes
-
-# fast build rule for target.
-byte_stream_many_writes/fast:
-	cd /home/akshat/Downloads/CNAssignments/assignment2/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_many_writes.dir/build.make tests/CMakeFiles/byte_stream_many_writes.dir/build
-.PHONY : byte_stream_many_writes/fast
-
-# Convenience name for target.
 tests/CMakeFiles/recv_connect.dir/rule:
 	cd /home/akshat/Downloads/CNAssignments/assignment2/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/recv_connect.dir/rule
 .PHONY : tests/CMakeFiles/recv_connect.dir/rule
@@ -509,30 +495,6 @@ byte_stream_construction.s: byte_stream_construction.cc.s
 byte_stream_construction.cc.s:
 	cd /home/akshat/Downloads/CNAssignments/assignment2/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_construction.dir/build.make tests/CMakeFiles/byte_stream_construction.dir/byte_stream_construction.cc.s
 .PHONY : byte_stream_construction.cc.s
-
-byte_stream_many_writes.o: byte_stream_many_writes.cc.o
-.PHONY : byte_stream_many_writes.o
-
-# target to build an object file
-byte_stream_many_writes.cc.o:
-	cd /home/akshat/Downloads/CNAssignments/assignment2/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_many_writes.dir/build.make tests/CMakeFiles/byte_stream_many_writes.dir/byte_stream_many_writes.cc.o
-.PHONY : byte_stream_many_writes.cc.o
-
-byte_stream_many_writes.i: byte_stream_many_writes.cc.i
-.PHONY : byte_stream_many_writes.i
-
-# target to preprocess a source file
-byte_stream_many_writes.cc.i:
-	cd /home/akshat/Downloads/CNAssignments/assignment2/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_many_writes.dir/build.make tests/CMakeFiles/byte_stream_many_writes.dir/byte_stream_many_writes.cc.i
-.PHONY : byte_stream_many_writes.cc.i
-
-byte_stream_many_writes.s: byte_stream_many_writes.cc.s
-.PHONY : byte_stream_many_writes.s
-
-# target to generate assembly for a file
-byte_stream_many_writes.cc.s:
-	cd /home/akshat/Downloads/CNAssignments/assignment2/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_many_writes.dir/build.make tests/CMakeFiles/byte_stream_many_writes.dir/byte_stream_many_writes.cc.s
-.PHONY : byte_stream_many_writes.cc.s
 
 byte_stream_one_write.o: byte_stream_one_write.cc.o
 .PHONY : byte_stream_one_write.o
@@ -1049,7 +1011,6 @@ help:
 	@echo "... test"
 	@echo "... byte_stream_capacity"
 	@echo "... byte_stream_construction"
-	@echo "... byte_stream_many_writes"
 	@echo "... byte_stream_one_write"
 	@echo "... byte_stream_two_writes"
 	@echo "... fsm_stream_reassembler_cap"
@@ -1077,9 +1038,6 @@ help:
 	@echo "... byte_stream_construction.o"
 	@echo "... byte_stream_construction.i"
 	@echo "... byte_stream_construction.s"
-	@echo "... byte_stream_many_writes.o"
-	@echo "... byte_stream_many_writes.i"
-	@echo "... byte_stream_many_writes.s"
 	@echo "... byte_stream_one_write.o"
 	@echo "... byte_stream_one_write.i"
 	@echo "... byte_stream_one_write.s"

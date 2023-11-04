@@ -257,19 +257,6 @@ byte_stream_capacity/fast:
 .PHONY : byte_stream_capacity/fast
 
 #=============================================================================
-# Target rules for targets named byte_stream_many_writes
-
-# Build rule for target.
-byte_stream_many_writes: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 byte_stream_many_writes
-.PHONY : byte_stream_many_writes
-
-# fast build rule for target.
-byte_stream_many_writes/fast:
-	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_many_writes.dir/build.make tests/CMakeFiles/byte_stream_many_writes.dir/build
-.PHONY : byte_stream_many_writes/fast
-
-#=============================================================================
 # Target rules for targets named recv_connect
 
 # Build rule for target.
@@ -462,7 +449,6 @@ help:
 	@echo "... test"
 	@echo "... byte_stream_capacity"
 	@echo "... byte_stream_construction"
-	@echo "... byte_stream_many_writes"
 	@echo "... byte_stream_one_write"
 	@echo "... byte_stream_two_writes"
 	@echo "... fsm_stream_reassembler_cap"

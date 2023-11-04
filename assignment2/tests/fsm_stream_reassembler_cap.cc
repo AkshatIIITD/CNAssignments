@@ -73,6 +73,17 @@ int main() {
             }
         }
 
+        {
+            StreamReassembler test5(4);
+            test5.push_substring("a", 0, false);
+            test5.push_substring("c", 2, false);
+            test5.push_substring("e", 4, false);
+            test5.push_substring("b", 1, false);
+            test5.push_substring("d", 3, false);
+
+
+        }
+
     } catch (const exception &e) {
         cerr << "Exception: " << e.what() << endl;
         return EXIT_FAILURE;
