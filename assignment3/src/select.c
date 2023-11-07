@@ -6,7 +6,7 @@
 #include <sys/select.h>
 #include <netinet/in.h>
 #define PORT 8080
-#define MAX_CLIENTS 1000
+#define MAX_CLIENTS 4000
 
 unsigned long long fact(unsigned long long n) {           // Function to compute the factorial
     if (n <= 1) {

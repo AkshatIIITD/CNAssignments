@@ -6,7 +6,7 @@
 #include <netinet/in.h>
 #include <sys/epoll.h>
 #define PORT 8080
-#define MAX_EVENTS 1000
+#define MAX_EVENTS 4000
 
 unsigned long long fact(unsigned long long n) {           // Function to compute the factorial
     if (n <= 1) {
@@ -29,13 +29,11 @@ int main() {
         perror("Bind failed");
         exit(EXIT_FAILURE);
     }
-    
     if (listen(server_fd, 3) < 0) {                     // Listening for incoming connections
         perror("Listen failed");
         exit(EXIT_FAILURE);
     }
-    // Create and configure an epoll instance
-    int epfd = epoll_create1(0);
+    int epfd = epoll_create1(0);                        // Create and configure an epoll instance
     if (epfd == -1) {
         perror("epoll_create1");
         exit(EXIT_FAILURE);
@@ -43,7 +41,6 @@ int main() {
     struct epoll_event ev, events[MAX_EVENTS];
     ev.events = EPOLLIN;
     ev.data.fd = server_fd;
-    // Add the server socket to the epoll instance
     if (epoll_ctl(epfd, EPOLL_CTL_ADD, server_fd, &ev) == -1) {
         perror("epoll_ctl: server_fd");
         exit(EXIT_FAILURE);
@@ -56,43 +53,32 @@ int main() {
         }
         for (int i = 0; i < num_events; i++) {
             if (events[i].data.fd == server_fd) {
-                // Handle new connection
                 if ((new_socket = accept(server_fd, (struct sockaddr *)&address, (socklen_t *)&addrlen)) < 0) {
                     perror("Accept");
                     exit(EXIT_FAILURE);
                 }
-
                 ev.events = EPOLLIN;
                 ev.data.fd = new_socket;
-
-                // Add the new client socket to the epoll instance
                 if (epoll_ctl(epfd, EPOLL_CTL_ADD, new_socket, &ev) == -1) {
                     perror("epoll_ctl: new_socket");
                     exit(EXIT_FAILURE);
                 }
             } else {
-                // Handle client data
                 char buffer[1024];
                 int valread = read(events[i].data.fd, buffer, sizeof(buffer));
                 if (valread <= 0) {
-                    // Client disconnected or error
                     close(events[i].data.fd);
                 } else {
-                    // Process data and send response
                     unsigned long long n;
                     memcpy(&n, buffer, sizeof(unsigned long long));
-                    // Compute the factorial (cap at 20 if n > 20)
                     if (n > 20) {
                         n = 20;
                     }
                     unsigned long long result = fact(n);
-
-                    // Send the factorial result to the client
                     write(events[i].data.fd, &result, sizeof(result));
                 }
             }
         }
     }
-
     return 0;
 }

@@ -6,9 +6,9 @@
 #include <netinet/in.h>
 #include <poll.h>
 #define PORT 8080
-#define MAX_CLIENTS 1000
+#define MAX_CLIENTS 4000
 
-unsigned long long fact(unsigned long long n) {           // Function to compute the factorial
+unsigned long long fact(unsigned long long n) {             // Function to compute the factorial
     if (n <= 1) {
         return 1;
     }
@@ -31,26 +31,28 @@ int main() {
         perror("Bind failed");
         exit(EXIT_FAILURE);
     }
-    if (listen(server_fd, 3) < 0) {                       // Listening for incoming connections
+    if (listen(server_fd, 3) < 0) {                // Listening for incoming connections
         perror("Listen failed");
         exit(EXIT_FAILURE);
     }
-    fds[0].fd = server_fd;                                // Initializing the poll structure for the server socket
+    fds[0].fd = server_fd;                         // Initializing the poll structure for the server socket
     fds[0].events = POLLIN;
-    fds[0].revents = 0;
-
     for (int i = 1; i < MAX_CLIENTS; i++) {
         fds[i].fd = -1;
     }
-    while (1) {
-        // Using poll to wait for events on the server socket and client sockets
-        int num_fds = poll(fds, MAX_CLIENTS, -1);
+    while (1) {                                    // Using poll to wait for events on the server socket and client sockets
+        int nfds = 1;                              // Set to 1 for the server socket
+        for (int i = 1; i < MAX_CLIENTS; i++) {
+            if (fds[i].fd != -1) {
+                nfds++;
+            }
+        }
+        int num_fds = poll(fds, nfds, -1);
         if (num_fds == -1) {
             perror("Poll");
             exit(EXIT_FAILURE);
         }
         if (fds[0].revents & POLLIN) {
-            // New client connection
             if ((new_socket = accept(server_fd, (struct sockaddr *)&address, (socklen_t *)&addrlen)) < 0) {
                 perror("Accept");
                 exit(EXIT_FAILURE);
@@ -65,20 +67,20 @@ int main() {
             fds[0].revents = 0;
         }
         for (int i = 1; i < MAX_CLIENTS; i++) {
-            if (fds[i].revents & POLLIN) {                      // Reading data, computing factorial, and sending response
-                char buffer[1024];        
+            if (fds[i].fd != -1 && fds[i].revents & POLLIN) {           // Reading data, computing factorial, and sending response
+                char buffer[1024];
                 int valread = read(fds[i].fd, buffer, sizeof(buffer));
-                if (valread <= 0) {
-                    close(fds[i].fd);                           // Client disconnected or error
+                if (valread <= 0) {                                     // Client disconnected or error 
+                    close(fds[i].fd);
                     fds[i].fd = -1;
-                } else {
-                    unsigned long long n;                       // Process data and send response
+                } else {                                                // Process data and send response
+                    unsigned long long n;            
                     memcpy(&n, buffer, sizeof(unsigned long long));
-                    if (n > 20) {                               // Computing the factorial (cap at 20 if n > 20)
+                    if (n > 20) {                                       // Compute the factorial (cap at 20 if n > 20)
                         n = 20;
                     }
                     unsigned long long result = fact(n);
-                    write(fds[i].fd, &result, sizeof(result));  // Sending the factorial result to the client
+                    write(fds[i].fd, &result, sizeof(result));          // Sending the result to the client
                 }
                 fds[i].revents = 0;
             }
@@ -86,3 +88,5 @@ int main() {
     }
     return 0;
 }
+
+
